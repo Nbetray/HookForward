@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node / Frontend
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Go / Backend
+backend/bin/
+backend/tmp/
+backend/relay-client/relay-client
+backend/cmd/server/server
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Docker
+deploy/*.log
+
+# Misc
+*.log

@@ -1,0 +1,2 @@
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS signature_header TEXT NOT NULL DEFAULT '';
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS event_type_header Text NOT NULL DEFAULT '';

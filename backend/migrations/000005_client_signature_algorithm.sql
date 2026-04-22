@@ -1,0 +1,1 @@
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS signature_algorithm TEXT NOT NULL DEFAULT '';
