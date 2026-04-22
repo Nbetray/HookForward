@@ -14,6 +14,7 @@ export function Shell({ children }: PropsWithChildren) {
     { to: "/login", label: "登录", visible: !user },
     { to: "/register", label: "注册", visible: !user },
     { to: "/reset-password", label: "找回密码", visible: !user },
+    { to: "/docs", label: "文档", visible: true },
     { to: "/admin/users", label: "管理员", visible: user?.role === "admin" },
   ];
 

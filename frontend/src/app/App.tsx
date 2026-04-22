@@ -11,6 +11,7 @@ import { ClientDetailPage } from "../pages/ClientDetailPage";
 import { MessagesPage } from "../pages/MessagesPage";
 import { MessageDetailPage } from "../pages/MessageDetailPage";
 import { AdminUsersPage } from "../pages/AdminUsersPage";
+import { DocsPage } from "../pages/DocsPage";
 import { GitHubAuthCallbackPage } from "../pages/GitHubAuthCallbackPage";
 
 export function App() {
@@ -68,6 +69,7 @@ export function App() {
             user?.role === "admin" ? <AdminUsersPage /> : <Navigate to="/" replace />
           }
         />
+        <Route path="/docs" element={<DocsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Shell>

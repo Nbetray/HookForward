@@ -12,6 +12,7 @@
   background:
     radial-gradient(circle at top left, rgba(245, 158, 11, 0.14), transparent 30%),
     linear-gradient(160deg, #f6f1e8 0%, #edf4ff 100%);
+  background-attachment: fixed;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -498,6 +499,56 @@ button.secondary {
   font-size: 0.85rem;
   font-weight: 600;
   color: #334155;
+}
+
+.doc-content h3 {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.15rem;
+}
+
+.doc-content h3:first-child {
+  margin-top: 0;
+}
+
+.doc-content h4 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.doc-content p {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+
+.doc-content ul,
+.doc-content ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.doc-content code {
+  background: rgba(16, 42, 67, 0.06);
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  font-family: "MapleMono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.85em;
+}
+
+.doc-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.doc-content hr {
+  border: none;
+  border-top: 1px solid rgba(16, 42, 67, 0.1);
+  margin: 1.5rem 0;
+}
+
+.doc-content .json-block {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.8rem;
 }
 
 .mobile-header {
