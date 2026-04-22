@@ -1,3 +1,5 @@
+import { CodeBlock } from "../components/CodeBlock";
+
 export function DocsPage() {
   return (
     <section className="page docs-page">
@@ -8,7 +10,7 @@ export function DocsPage() {
 
       <div className="card doc-content">
         <h3>整体架构</h3>
-        <pre className="json-block">{`上游系统 (GitHub / GitLab / 自定义)
+        <CodeBlock>{`上游系统 (GitHub / GitLab / 自定义)
         │
         │  POST /webhook/incoming/{token}
         ▼
@@ -29,20 +31,20 @@ export function DocsPage() {
 │  1. 接收消息      │
 │  2. 本地处理      │
 │  3. 返回 ACK      │
-└───────────────────┘`}</pre>
+└───────────────────┘`}</CodeBlock>
 
         <h3>消息投递流程</h3>
 
         <h4>第一步：上游发送 Webhook</h4>
         <p>上游系统向 HookForward 服务器发送 HTTP 请求：</p>
-        <pre className="json-block">{`curl -X POST https://your-server.com/webhook/incoming/abc123token \\
+        <CodeBlock>{`curl -X POST https://your-server.com/webhook/incoming/abc123token \\
   -H "Content-Type: application/json" \\
   -H "X-GitHub-Event: push" \\
   -H "X-Hub-Signature-256: sha256=xxxxxx" \\
   -d '{
     "ref": "refs/heads/main",
     "commits": [{"message": "fix: update readme"}]
-  }'`}</pre>
+  }'`}</CodeBlock>
 
         <h4>第二步：服务端处理</h4>
         <ol>
@@ -69,15 +71,15 @@ export function DocsPage() {
         <h3>WebSocket 协议说明</h3>
 
         <h4>连接地址</h4>
-        <pre className="json-block">{`ws://localhost:8080/ws/connect    # 开发环境
-wss://your-server.com/ws/connect  # 生产环境`}</pre>
+        <CodeBlock>{`ws://localhost:8080/ws/connect    # 开发环境
+wss://your-server.com/ws/connect  # 生产环境`}</CodeBlock>
 
         <h4>认证握手</h4>
         <p>连接建立后，客户端必须在 <strong>15 秒</strong>内发送认证消息：</p>
-        <pre className="json-block">{`→ {"type": "auth", "client_id": "client_xxx", "client_secret": "secret_xxx"}
-← {"type": "auth_ok", "client_id": "client_xxx"}`}</pre>
+        <CodeBlock>{`→ {"type": "auth", "client_id": "client_xxx", "client_secret": "secret_xxx"}
+← {"type": "auth_ok", "client_id": "client_xxx"}`}</CodeBlock>
         <p>认证失败会返回：</p>
-        <pre className="json-block">{`← {"type": "auth_error", "error": "invalid credentials"}`}</pre>
+        <CodeBlock>{`← {"type": "auth_error", "error": "invalid credentials"}`}</CodeBlock>
 
         <h4>心跳保活</h4>
         <ul>
@@ -88,7 +90,7 @@ wss://your-server.com/ws/connect  # 生产环境`}</pre>
 
         <h4>消息格式</h4>
         <p><strong>服务端 → 客户端（Webhook 消息推送）：</strong></p>
-        <pre className="json-block">{`{
+        <CodeBlock>{`{
   "type": "webhook_message",
   "message_id": "msg_a1b2c3d4",
   "event": "push",
@@ -106,19 +108,19 @@ wss://your-server.com/ws/connect  # 生产环境`}</pre>
     "commits": [{"message": "fix: update readme"}]
   },
   "received_at": "2026-04-23T10:30:00Z"
-}`}</pre>
+}`}</CodeBlock>
 
         <p><strong>客户端 → 服务端（ACK 确认）：</strong></p>
-        <pre className="json-block">{`{"type": "ack", "message_id": "msg_a1b2c3d4", "success": true, "error": ""}`}</pre>
+        <CodeBlock>{`{"type": "ack", "message_id": "msg_a1b2c3d4", "success": true, "error": ""}`}</CodeBlock>
         <p>处理失败时：</p>
-        <pre className="json-block">{`{"type": "ack", "message_id": "msg_a1b2c3d4", "success": false, "error": "forward failed: connection refused"}`}</pre>
+        <CodeBlock>{`{"type": "ack", "message_id": "msg_a1b2c3d4", "success": false, "error": "forward failed: connection refused"}`}</CodeBlock>
 
         <hr />
 
         <h3>客户端接入 Demo</h3>
 
         <h4>Go 客户端（使用内置 SDK）</h4>
-        <pre className="json-block">{`package main
+        <CodeBlock>{`package main
 
 import (
     "context"
@@ -157,10 +159,10 @@ func main() {
     if err := client.Run(ctx); err != nil {
         log.Fatalf("client stopped: %v", err)
     }
-}`}</pre>
+}`}</CodeBlock>
 
         <h4>Python 客户端</h4>
-        <pre className="json-block">{`import asyncio
+        <CodeBlock>{`import asyncio
 import json
 import websockets
 
@@ -210,10 +212,10 @@ async def connect():
             await asyncio.sleep(3)
 
 if __name__ == "__main__":
-    asyncio.run(connect())`}</pre>
+    asyncio.run(connect())`}</CodeBlock>
 
         <h4>Node.js 客户端</h4>
-        <pre className="json-block">{`const WebSocket = require("ws");
+        <CodeBlock>{`const WebSocket = require("ws");
 
 const WS_URL = "wss://your-server.com/ws/connect";
 const CLIENT_ID = "client_xxx";
@@ -276,10 +278,10 @@ async function handleMessage(msg) {
   console.log("  Payload:", JSON.stringify(msg.payload).slice(0, 200));
 }
 
-connect();`}</pre>
+connect();`}</CodeBlock>
 
         <h4>cURL 测试（使用 websocat）</h4>
-        <pre className="json-block">{`# 安装 websocat: brew install websocat
+        <CodeBlock>{`# 安装 websocat: brew install websocat
 
 # 连接并手动交互
 websocat ws://localhost:8080/ws/connect
@@ -288,7 +290,7 @@ websocat ws://localhost:8080/ws/connect
 {"type":"auth","client_id":"client_xxx","client_secret":"secret_xxx"}
 
 # 收到消息后回复 ACK：
-{"type":"ack","message_id":"msg_a1b2c3d4","success":true,"error":""}`}</pre>
+{"type":"ack","message_id":"msg_a1b2c3d4","success":true,"error":""}`}</CodeBlock>
 
         <hr />
 
@@ -311,8 +313,8 @@ websocat ws://localhost:8080/ws/connect
 
         <h3>手动重新投递</h3>
         <p>对于投递失败的消息，可以通过 API 手动触发重新投递：</p>
-        <pre className="json-block">{`curl -X POST https://your-server.com/api/v1/messages/msg_a1b2c3d4/redeliver \\
-  -H "Authorization: Bearer {jwt_token}"`}</pre>
+        <CodeBlock>{`curl -X POST https://your-server.com/api/v1/messages/msg_a1b2c3d4/redeliver \\
+  -H "Authorization: Bearer {jwt_token}"`}</CodeBlock>
         <p>前提是对应的 Relay Client 当前在线。</p>
       </div>
     </section>

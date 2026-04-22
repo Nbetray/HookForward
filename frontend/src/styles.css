@@ -551,6 +551,34 @@ button.secondary {
   font-size: 0.8rem;
 }
 
+.code-block-wrap {
+  position: relative;
+}
+
+.code-block-wrap .json-block {
+  margin: 0.5rem 0 1rem;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.15s, color 0.15s;
+  z-index: 1;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
 .mobile-header {
   display: none;
 }
