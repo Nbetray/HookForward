@@ -1,4 +1,4 @@
-module hookforward/backend
+module github.com/Nbetray/HookForward/backend
 
 go 1.25.0
 

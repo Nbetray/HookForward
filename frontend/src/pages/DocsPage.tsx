@@ -130,7 +130,7 @@ import (
     "os/signal"
     "syscall"
 
-    "github.com/user/hookforward/backend/pkg/realtimeclient"
+    "github.com/Nbetray/HookForward/backend/pkg/realtimeclient"
 )
 
 func main() {

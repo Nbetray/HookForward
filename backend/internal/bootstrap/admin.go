@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"hookforward/backend/internal/auth"
-	"hookforward/backend/internal/config"
-	"hookforward/backend/internal/domain"
-	"hookforward/backend/internal/repository"
+	"github.com/Nbetray/HookForward/backend/internal/auth"
+	"github.com/Nbetray/HookForward/backend/internal/config"
+	"github.com/Nbetray/HookForward/backend/internal/domain"
+	"github.com/Nbetray/HookForward/backend/internal/repository"
 )
 
 func EnsureAdmin(ctx context.Context, cfg config.Config, users *repository.UserRepository) error {

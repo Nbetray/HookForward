@@ -7,18 +7,18 @@ import (
 	"crypto/sha1"
 	"crypto/sha256"
 	"crypto/subtle"
-	"hash"
 	"encoding/hex"
 	"encoding/json"
 	"errors"
+	"hash"
 	"log"
 	"net/http"
 	"strings"
 	"time"
 
-	"hookforward/backend/internal/domain"
-	"hookforward/backend/internal/repository"
-	"hookforward/backend/internal/ws"
+	"github.com/Nbetray/HookForward/backend/internal/domain"
+	"github.com/Nbetray/HookForward/backend/internal/repository"
+	"github.com/Nbetray/HookForward/backend/internal/ws"
 )
 
 type MessageService struct {

@@ -8,15 +8,15 @@ import (
 	"syscall"
 	"time"
 
-	"hookforward/backend/internal/auth"
-	"hookforward/backend/internal/bootstrap"
-	"hookforward/backend/internal/config"
-	httpserver "hookforward/backend/internal/http"
-	"hookforward/backend/internal/mailer"
-	"hookforward/backend/internal/repository"
-	"hookforward/backend/internal/service"
-	"hookforward/backend/internal/verification"
-	"hookforward/backend/internal/ws"
+	"github.com/Nbetray/HookForward/backend/internal/auth"
+	"github.com/Nbetray/HookForward/backend/internal/bootstrap"
+	"github.com/Nbetray/HookForward/backend/internal/config"
+	httpserver "github.com/Nbetray/HookForward/backend/internal/http"
+	"github.com/Nbetray/HookForward/backend/internal/mailer"
+	"github.com/Nbetray/HookForward/backend/internal/repository"
+	"github.com/Nbetray/HookForward/backend/internal/service"
+	"github.com/Nbetray/HookForward/backend/internal/verification"
+	"github.com/Nbetray/HookForward/backend/internal/ws"
 )
 
 func main() {

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"hookforward/backend/internal/domain"
-	"hookforward/backend/internal/repository"
+	"github.com/Nbetray/HookForward/backend/internal/domain"
+	"github.com/Nbetray/HookForward/backend/internal/repository"
 )
 
 var (

@@ -14,12 +14,12 @@ import (
 	"strings"
 	"time"
 
-	"hookforward/backend/internal/auth"
-	"hookforward/backend/internal/config"
-	"hookforward/backend/internal/domain"
-	"hookforward/backend/internal/mailer"
-	"hookforward/backend/internal/repository"
-	"hookforward/backend/internal/verification"
+	"github.com/Nbetray/HookForward/backend/internal/auth"
+	"github.com/Nbetray/HookForward/backend/internal/config"
+	"github.com/Nbetray/HookForward/backend/internal/domain"
+	"github.com/Nbetray/HookForward/backend/internal/mailer"
+	"github.com/Nbetray/HookForward/backend/internal/repository"
+	"github.com/Nbetray/HookForward/backend/internal/verification"
 )
 
 var (

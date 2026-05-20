@@ -10,7 +10,7 @@ import (
 	"net/smtp"
 	"strings"
 
-	"hookforward/backend/internal/config"
+	"github.com/Nbetray/HookForward/backend/internal/config"
 )
 
 type EmailSender interface {

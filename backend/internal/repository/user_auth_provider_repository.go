@@ -7,7 +7,7 @@ import (
 	"encoding/json"
 	"errors"
 
-	"hookforward/backend/internal/domain"
+	"github.com/Nbetray/HookForward/backend/internal/domain"
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"

@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"hookforward/backend/internal/domain"
+	"github.com/Nbetray/HookForward/backend/internal/domain"
 
 	"github.com/gorilla/websocket"
 )

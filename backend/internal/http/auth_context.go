@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"hookforward/backend/internal/auth"
+	"github.com/Nbetray/HookForward/backend/internal/auth"
 )
 
 type contextKey string

@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"hookforward/backend/internal/domain"
-	"hookforward/backend/internal/repository"
-	"hookforward/backend/internal/ws"
+	"github.com/Nbetray/HookForward/backend/internal/domain"
+	"github.com/Nbetray/HookForward/backend/internal/repository"
+	"github.com/Nbetray/HookForward/backend/internal/ws"
 )
 
 type ClientService struct {
@@ -20,22 +20,22 @@ type ClientService struct {
 }
 
 type ClientView struct {
-	ID              string     `json:"id"`
-	Name            string     `json:"name"`
-	ClientID        string     `json:"clientId"`
-	ClientSecret    string     `json:"clientSecret,omitempty"`
-	WebhookToken    string     `json:"webhookToken"`
-	WebhookSecret   string     `json:"webhookSecret,omitempty"`
+	ID                 string     `json:"id"`
+	Name               string     `json:"name"`
+	ClientID           string     `json:"clientId"`
+	ClientSecret       string     `json:"clientSecret,omitempty"`
+	WebhookToken       string     `json:"webhookToken"`
+	WebhookSecret      string     `json:"webhookSecret,omitempty"`
 	VerifySignature    bool       `json:"verifySignature"`
 	SignatureHeader    string     `json:"signatureHeader"`
 	SignatureAlgorithm string     `json:"signatureAlgorithm"`
 	EventTypeHeader    string     `json:"eventTypeHeader"`
-	WebhookURL      string     `json:"webhookUrl"`
-	WSEndpoint      string     `json:"wsEndpoint"`
-	Status          string     `json:"status"`
-	Online          bool       `json:"online"`
-	LastConnected   *time.Time `json:"lastConnectedAt"`
-	CreatedAt       time.Time  `json:"createdAt"`
+	WebhookURL         string     `json:"webhookUrl"`
+	WSEndpoint         string     `json:"wsEndpoint"`
+	Status             string     `json:"status"`
+	Online             bool       `json:"online"`
+	LastConnected      *time.Time `json:"lastConnectedAt"`
+	CreatedAt          time.Time  `json:"createdAt"`
 }
 
 func NewClientService(clients *repository.ClientRepository, publicBaseURL string, hub *ws.Hub) *ClientService {
@@ -154,20 +154,20 @@ func (s *ClientService) clientView(client domain.Client, includeSecrets bool) Cl
 
 func clientViewFromDomain(client domain.Client, includeSecrets bool, online bool) ClientView {
 	view := ClientView{
-		ID:              client.ID,
-		Name:            client.Name,
-		ClientID:        client.ClientID,
-		WebhookToken:    client.WebhookToken,
+		ID:                 client.ID,
+		Name:               client.Name,
+		ClientID:           client.ClientID,
+		WebhookToken:       client.WebhookToken,
 		VerifySignature:    client.VerifySignature,
 		SignatureHeader:    client.SignatureHeader,
 		SignatureAlgorithm: client.SignatureAlgorithm,
 		EventTypeHeader:    client.EventTypeHeader,
-		WebhookURL:      client.WebhookURL,
-		WSEndpoint:      toWSEndpoint(client.WebhookURL, client.WebhookToken),
-		Status:          client.Status,
-		Online:          online,
-		LastConnected:   client.LastConnected,
-		CreatedAt:       client.CreatedAt,
+		WebhookURL:         client.WebhookURL,
+		WSEndpoint:         toWSEndpoint(client.WebhookURL, client.WebhookToken),
+		Status:             client.Status,
+		Online:             online,
+		LastConnected:      client.LastConnected,
+		CreatedAt:          client.CreatedAt,
 	}
 
 	if includeSecrets {

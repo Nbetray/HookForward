@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"hookforward/backend/internal/domain"
+	"github.com/Nbetray/HookForward/backend/internal/domain"
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -216,12 +216,12 @@ type StatusCount struct {
 }
 
 type DashboardStats struct {
-	TotalClients  int                `json:"totalClients"`
-	OnlineClients int                `json:"onlineClients"`
-	TotalMessages int                `json:"totalMessages"`
-	Delivered     int                `json:"delivered"`
-	Failed        int                `json:"failed"`
-	Pending       int                `json:"pending"`
+	TotalClients  int                 `json:"totalClients"`
+	OnlineClients int                 `json:"onlineClients"`
+	TotalMessages int                 `json:"totalMessages"`
+	Delivered     int                 `json:"delivered"`
+	Failed        int                 `json:"failed"`
+	Pending       int                 `json:"pending"`
 	Daily         []DailyMessageCount `json:"daily"`
 	ByStatus      []StatusCount       `json:"byStatus"`
 }

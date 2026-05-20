@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"hookforward/backend/internal/auth"
-	"hookforward/backend/internal/config"
-	"hookforward/backend/internal/repository"
-	"hookforward/backend/internal/service"
-	"hookforward/backend/internal/ws"
+	"github.com/Nbetray/HookForward/backend/internal/auth"
+	"github.com/Nbetray/HookForward/backend/internal/config"
+	"github.com/Nbetray/HookForward/backend/internal/repository"
+	"github.com/Nbetray/HookForward/backend/internal/service"
+	"github.com/Nbetray/HookForward/backend/internal/ws"
 )
 
 type ServerDependencies struct {

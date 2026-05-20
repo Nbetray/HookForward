@@ -10,7 +10,7 @@ import (
 	"syscall"
 	"time"
 
-	"hookforward/backend/pkg/realtimeclient"
+	"github.com/Nbetray/HookForward/backend/pkg/realtimeclient"
 )
 
 func main() {
